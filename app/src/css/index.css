@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+@import '@primer/primitives/dist/css/functional/themes/light.css';
+
+@theme {
+  --color-app-gold: oklch(0.8298 0.1473 76.48);
+  --color-app-orange: oklch(0.7079 0.1357 70.06);
+}
+
+:root {
+  --color-primary: oklch(0.2587 0.0705 257.68);
+}
+
+button[data-variant='primary'] {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+button[data-variant='primary']:active {
+  background-color: oklch(0.1983 0.0551 258.24) !important;
+  border-color: oklch(0.1983 0.0551 258.24) !important;
+}
+
+button[data-variant='primary']:hover {
+  background-color: oklch(0.3473 0.0874 255.14) !important;
+}
+
+button[data-variant='primary']:focus-visible {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px;
+}
+
+button[data-variant='primary']:disabled,
+button[data-variant='primary'][aria-disabled='true'] {
+  background-color: #94a3b8 !important;
+  border-color: #94a3b8 !important;
+  color: #f1f5f9 !important;
+  cursor: not-allowed !important;
+}

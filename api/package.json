@@ -1,0 +1,39 @@
+{
+  "name": "fambahub-api",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "main": "app.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "bun run build:ts && tsc -p test/tsconfig.json && c8 bun test --timeout=5000",
+    "start": "bun --bun build:ts && bun --bun fastify start -p $PORT --trust-proxy-enabled -l info -P dist/app.js",
+    "build:ts": "bun --bun tsc",
+    "watch:ts": "bun --bun tsc -w",
+    "dev": "bun --bun build:ts && bunx concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"bun:watch:ts\" \"bun:dev:start\"",
+    "dev:start": "bun --bun fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js",
+    "prisma": "prisma"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^6.0.0",
+    "@fastify/cors": "^11.1.0",
+    "@fastify/sensible": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "fastify": "^5.0.0",
+    "fastify-cli": "^7.4.1",
+    "fastify-plugin": "^5.0.0",
+    "xior": "^0.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.8",
+    "c8": "^10.1.2",
+    "ts-node": "^10.4.0",
+    "concurrently": "^9.0.0",
+    "fastify-tsconfig": "^3.0.0",
+    "typescript": "~5.9.2"
+  }
+}
